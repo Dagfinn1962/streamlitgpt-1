@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "flask-stable-diffusion"
+version = "0.1.0"
+description = ""
+authors = ["joseph.szurley <joseph.szurley@unbabel.com>"]
+readme = "README.md"
+packages = [{include = "flask_stable_diffusion"}]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.9.7 || >3.9.7,<4.0"
+transformers = "^4.26.0"
+huggingface-hub = {version = "^0.12.0", extras = ["cli"]}
+torch = "^1.13.1"
+fastapi = "^0.90.0"
+openai = "^0.26.5"
+python-dotenv = "^0.21.1"
+streamlit = "^1.17.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
