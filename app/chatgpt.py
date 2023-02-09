@@ -1,14 +1,9 @@
-import os
 import openai
 import streamlit as st
-import os.path
-from dotenv import load_dotenv
 import json
 
-# do this twice to get top level directory
-basedir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
-load_dotenv(os.path.join(basedir, ".env"))
-openai.api_key = os.environ.get("OPENAI_API_KEY")
+
+openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 st.title("CHATGPT Prompt")
 
