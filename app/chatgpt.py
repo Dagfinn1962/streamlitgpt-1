@@ -5,12 +5,21 @@ import json
 
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
+# define models
+models = {
+    "Davinci": "text-davinci-003",
+    "Curie": "text-curie-001",
+    "Babbage": "text-babbage-001",
+    "Ada": "text-ada-001",
+}
 st.title("CHATGPT Prompt")
 
 response = ""
 
 input_text = st.text_area("Input Text", label_visibility="visible", height=400)
 with st.sidebar:
+    model = st.selectbox("ChatGPT model", ("Davinci", "Curie", "Babbage", "Ada"))
+    model = models[model]
     # Controls randomness, so a low temperature is less random (deterministic), while a high temperature is more random.
     temperature = st.slider(
         label="Temperature", min_value=0.0, max_value=1.0, value=0.8
@@ -32,7 +41,7 @@ with st.sidebar:
 if st.button("Submit"):
     with st.spinner("Wait for it..."):
         response = openai.Completion.create(
-            model="text-davinci-003",
+            model=model,
             prompt=input_text,
             temperature=temperature,
             max_tokens=max_tokens,
@@ -54,3 +63,4 @@ else:
     output_text = st.text_area(
         "Output Text", label_visibility="visible", disabled=True, height=400
     )
+
