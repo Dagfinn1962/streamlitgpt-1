@@ -3,6 +3,7 @@ import streamlit as st
 import json
 import requests
 
+openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 st.title("Dall-E Prompt")
 
