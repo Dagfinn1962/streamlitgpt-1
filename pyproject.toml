@@ -8,7 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = ">=3.9,<3.9.7 || >3.9.7,<4.0"
 openai = "^0.26.5"
-streamlit = "1.18"
+streamlit = "1.18.1"
 
 
 [build-system]
